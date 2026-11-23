@@ -1,0 +1,22 @@
+# Persistent data, secrets and local verification artifacts.
+data/
+data-demo/
+.qa/
+.env
+.env.*
+*.log
+node_modules/
+coverage/
+dist/
+build/
+.git/
+
+# Generated files and original artwork/licenses are not source formatting targets.
+package-lock.json
+public/*-license.txt
+public/*.png
+public/*.jpg
+public/*.jpeg
+public/*.webp
+public/*.svg
+public/*.ttf

@@ -1,0 +1,20 @@
+[Unit]
+Description=Recuperação do painel de TV após falha de saúde
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /opt/tabela-digital/deploy/linux/watchdog.sh
+Environment=DOCKER_HOST=unix:///var/run/docker.sock
+Environment=DOCKER_CONFIG=/run/tabela-digital/docker
+User=root
+Group=root
+UMask=0077
+RuntimeDirectory=tabela-digital
+RuntimeDirectoryMode=0700
+RuntimeDirectoryPreserve=yes
+TimeoutStartSec=70s
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true

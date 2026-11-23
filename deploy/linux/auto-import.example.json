@@ -1,0 +1,14 @@
+{
+  "intervalSeconds": 30,
+  "sources": [
+    {
+      "store": "Margarida",
+      "path": "/mnt/price-files/Toledo/001/txitens.txt"
+    },
+    {
+      "store": "Santa Fé",
+      "path": "/mnt/price-files/Toledo/002/txitens.txt"
+    }
+  ]
+}
+

@@ -1,0 +1,10 @@
+/data/
+/data-demo/
+/.env
+/.env.*
+!/.env.example
+/*.log
+/.qa/
+/node_modules/
+/coverage/
+/release/

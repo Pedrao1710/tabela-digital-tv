@@ -1,0 +1,11 @@
+[Unit]
+Description=Conferência periódica da saúde do painel de TV
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=1min
+AccuracySec=10s
+Unit=tabela-watchdog.service
+
+[Install]
+WantedBy=timers.target

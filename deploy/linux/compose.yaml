@@ -1,0 +1,56 @@
+services:
+  tabela-digital:
+    build:
+      context: ../..
+      dockerfile: deploy/linux/Dockerfile
+    image: tabela-digital:${TABELA_VERSION:-local}
+    container_name: tabela-digital
+    restart: unless-stopped
+    stop_grace_period: 30s
+    init: true
+    user: "1000:1000"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 100
+    mem_limit: 512m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    ports:
+      - "${TABELA_BIND:-127.0.0.1}:${TABELA_PORT:-8088}:8088"
+    environment:
+      TABELA_HOST: 0.0.0.0
+      TABELA_PORT: 8088
+      TABELA_DATA: /data
+      TABELA_ORIGIN: ${TABELA_ORIGIN:?Configure TABELA_ORIGIN no arquivo .env}
+      TABELA_TRUSTED_PROXIES: ${TABELA_TRUSTED_PROXIES:-}
+    volumes:
+      - type: bind
+        source: ${TABELA_DATA_DIR:?Configure TABELA_DATA_DIR no arquivo .env}
+        target: /data
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${PRICE_SOURCE_DIR:?Configure PRICE_SOURCE_DIR no arquivo .env}
+        target: /mnt/price-files
+        read_only: true
+        bind:
+          create_host_path: false
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:8088/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+

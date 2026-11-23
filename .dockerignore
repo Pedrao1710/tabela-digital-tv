@@ -1,0 +1,17 @@
+data/
+data-demo/
+.qa/
+test/
+.git/
+.env
+.env.*
+*.log
+node_modules/
+coverage/
+scripts/
+.editorconfig
+.prettierrc.json
+.prettierignore
+package-lock.json
+release/
+

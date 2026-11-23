@@ -1,0 +1,21 @@
+{
+  "name": "tabela-digital-arapongas",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test",
+    "check:syntax": "node scripts/check.mjs",
+    "format": "prettier --write \"*.mjs\" \"public/**/*.{js,css,html}\" \"scripts/**/*.mjs\" \"test/**/*.mjs\" package.json .prettierrc.json",
+    "format:check": "prettier --check \"*.mjs\" \"public/**/*.{js,css,html}\" \"scripts/**/*.mjs\" \"test/**/*.mjs\" package.json .prettierrc.json",
+    "check": "npm run check:syntax && npm test && npm run format:check",
+    "package:release": "npm run check && node scripts/package.mjs"
+  },
+  "devDependencies": {
+    "prettier": "3.10.1"
+  }
+}

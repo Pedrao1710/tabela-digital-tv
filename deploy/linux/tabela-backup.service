@@ -1,0 +1,28 @@
+[Unit]
+Description=Backup criptografado do painel de TV para Google Drive
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/tabela-digital/backup.env
+Environment=RCLONE_CONFIG=/var/lib/tabela-backup/rclone.conf
+Environment=DOCKER_HOST=unix:///var/run/docker.sock
+Environment=DOCKER_CONFIG=/run/tabela-digital/docker
+ExecStart=/usr/bin/bash /opt/tabela-digital/deploy/linux/backup-two.sh
+User=root
+Group=root
+UMask=0077
+StateDirectory=tabela-backup
+StateDirectoryMode=0700
+RuntimeDirectory=tabela-digital
+RuntimeDirectoryMode=0700
+RuntimeDirectoryPreserve=yes
+TimeoutStartSec=30min
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/var/lib/tabela-digital
+ReadWritePaths=/tmp
+

@@ -1,0 +1,17 @@
+{
+  "singleQuote": true,
+  "tabWidth": 2,
+  "printWidth": 100,
+  "trailingComma": "es5",
+  "endOfLine": "lf",
+  "htmlWhitespaceSensitivity": "strict",
+  "embeddedLanguageFormatting": "off",
+  "overrides": [
+    {
+      "files": ["public/tv.js", "public/tv-entry.js"],
+      "options": {
+        "trailingComma": "none"
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Tabela Digital Arapongas</title>
+    <link rel="stylesheet" href="/tv.css" />
+    <script src="/tv.js" defer></script>
+  </head>
+  <body>
+    <div class="sign">
+      <header id="masthead" class="masthead">
+        <div class="brand">
+          <span class="brand-mark">
+            <svg
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="125 780 845 340"
+              role="img"
+              aria-label="Arapongas Supermercados"
+            >
+              <image
+                href="/arapongas-logo.png"
+                xlink:href="/arapongas-logo.png"
+                x="0"
+                y="0"
+                width="1080"
+                height="1920"
+              />
+            </svg>
+          </span>
+          <div class="brand-label">
+            <span>Tabela digital</span>
+          </div>
+        </div>
+        <div class="calendar">
+          <time id="clock" class="clock" aria-label="Hora local">--:--</time>
+          <time id="date" class="date" aria-label="Data local">--/--/----</time>
+        </div>
+        <div class="store">
+          <h1 id="store-name">Tabela de preços</h1>
+          <span id="store-city"></span>
+        </div>
+        <div id="connection" class="connection" role="status" data-state="waiting" hidden>
+          <span class="connection-dot" aria-hidden="true"></span>
+          <span id="connection-text" class="connection-text">Conectando</span>
+        </div>
+      </header>
+
+      <main id="display" class="display">
+        <div id="media" class="media">
+          <div class="media-art">
+            <img src="/acougue-photo.jpg" alt="" />
+            <div class="media-label">
+              <strong>Açougue</strong>
+            </div>
+          </div>
+          <div id="media-frame" class="media-frame" hidden></div>
+        </div>
+        <section id="board" class="board" aria-labelledby="group">
+          <div class="board-header">
+            <h2 id="group">Tabela de preços</h2>
+            <span aria-hidden="true">Preço</span>
+          </div>
+          <img id="slide-background" class="slide-background" alt="" hidden />
+          <ul id="prices" class="prices" aria-label="Produtos e preços" hidden></ul>
+          <div id="board-notice" class="board-notice">
+            <p id="notice-title">Carregando tabela</p>
+            <p id="notice-detail">Aguarde enquanto os preços são atualizados.</p>
+          </div>
+          <noscript>Ative o JavaScript para exibir a tabela de preços.</noscript>
+        </section>
+      </main>
+
+      <footer id="ticker" class="ticker">
+        <div id="ticker-window" class="ticker-window">
+          <div id="ticker-track" class="ticker-track">
+            <span id="ticker-message" class="ticker-copy">Confira os preços da loja.</span>
+            <span id="ticker-repeat" class="ticker-copy" aria-hidden="true"></span>
+          </div>
+        </div>
+        <button
+          id="ticker-toggle"
+          class="ticker-toggle"
+          type="button"
+          aria-label="Pausar mensagem"
+          aria-pressed="false"
+          hidden
+          >Ⅱ</button
+        >
+        <span id="page-counter" class="page-counter" hidden></span>
+      </footer>
+      <aside id="diagnostics" class="diagnostics" aria-label="Diagnóstico da tela" hidden>
+        <h2>Diagnóstico da tela</h2>
+        <div id="diagnostic-data"></div>
+      </aside>
+    </div>
+  </body>
+</html>
